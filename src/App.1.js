@@ -9,10 +9,11 @@ class App extends Component {
   }
 
   componentDidMount(){
-    console.log('hello from componentDidMount')
-    fetch('https://mysterious-savannah-64434.herokuapp.com/items')
-    .then((resp) => {
-      console.log(resp.json())
+    const cartJSON = localStorage.getItem ("cart")
+    const cart = JSON.parse(cartJSON);
+    this.setState({
+      items: ["Shoes", "Sandals", "Hat", "Sunglasss"],
+      cart
     })
   }
 
