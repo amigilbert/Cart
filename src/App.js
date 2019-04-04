@@ -6,7 +6,7 @@ import Input from "./components/Input"
 class App extends Component {
 
   state = {
-    items: [{"id":1,"name":"computer","price":300,"image":"https://i5.walmartimages.com/asr/3826f75b-efeb-4a76-bd3a-735641a4a1c9_1.b84fd4ece51b32016a10c20ef07199cf.jpeg"}],
+    items: [],
     cart: [],
   }
 
@@ -16,11 +16,11 @@ class App extends Component {
     .then((resp) => {
       let data = resp.json()
       console.log(data)
-      // this.setState({ items: data })
       return data
     })
-    .then(function(myJson) {
-      console.log(JSON.stringify(myJson));
+    .then((myJson) => {
+      console.log(myJson);
+      this.setState({ items: myJson })
     })
   }
 
